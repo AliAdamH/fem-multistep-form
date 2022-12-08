@@ -1,4 +1,5 @@
 import React from 'react';
+import FormContent from './FormContent';
 import Stepper from './Stepper';
 
 function Form() {
@@ -6,7 +7,7 @@ function Form() {
     <>
       <div className="max-w-4xl bg-gray-500 p-3 rounded-lg flex gap-3">
         <Stepper />
-        <h1 className="text-4xl">Hello there</h1>
+        <FormContent />
       </div>
     </>
   );
