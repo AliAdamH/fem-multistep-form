@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PersonalInfo() {
+function PersonalInfo({ name, email, phone, changeData }) {
   return (
     <>
        <div id="header" className='mb-8'>
@@ -10,17 +10,17 @@ function PersonalInfo() {
        <div id="fields" className='flex flex-col gap-6'>
             <div className='flex flex-col gap-2'>
                 <label htmlFor='name' className='text-primary-marine text-sm'>Name</label>
-                <input id='name' type="text" name='name' className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
+                <input onChange={(e) => changeData({[e.target.name]: e.target.value})} id='name' type="text" name='name' value={name} className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
             </div>
 
             <div className='flex flex-col gap-2'>
                 <label htmlFor='email' className='text-primary-marine text-sm'>Email address</label>
-                <input id='email' type="email" name='email' className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
+                <input onChange={(e) => changeData({[e.target.name]: e.target.value})}  id='email' type="email" name='email' value={email} className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
             </div>
 
             <div className='flex flex-col gap-2'>
                 <label htmlFor='phone' className='text-primary-marine text-sm'>Phone Number</label>
-                <input id='phone' type="tel" name='phone' className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
+                <input  onChange={(e) => changeData({[e.target.name]: e.target.value})} id='phone' type="tel" name='phone' value={phone} className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
             </div>
        </div>
     </>
