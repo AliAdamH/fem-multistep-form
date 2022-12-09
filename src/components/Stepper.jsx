@@ -7,11 +7,11 @@ import StepperItem from './StepperItem';
 
 
 function Stepper({ steps, forwardActiveStep }) {
-  const [activeStep, setActiveStep ] = useState(steps[0].stepId)
+  const [activeStep, setActiveStep ] = useState(steps[1].stepId)
 
   const handleStepActivation = (step) => {
     setActiveStep(step.stepId)
-    forwardActiveStep(step)
+    forwardActiveStep(step.stepId)
   }
 
   return <>
@@ -19,8 +19,8 @@ function Stepper({ steps, forwardActiveStep }) {
       <DesktopSidebar />
       <div className='absolute inset-0'>
         <div id="steps" className='mt-8 w-2/3 mx-auto flex flex-col gap-8'>
-          {steps.map((step) => {
-            return <StepperItem activate={handleStepActivation} key={step.stepId} step={step} active={step.stepId === activeStep}/>
+          {Object.keys(steps).map((stepId) => {
+            return <StepperItem activate={handleStepActivation} key={stepId} step={steps[stepId]} active={Number(stepId) === activeStep}/>
           })}
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import PersonalInfo from './PersonalInfo'
 import FormNavigation from './FormNavigation'
-function FormContent({ activeStep }) {
+function FormContent({ activeStep,  changeStep }) {
 
   const ToRender = activeStep?.view
 
@@ -9,7 +9,7 @@ function FormContent({ activeStep }) {
     <div className='bg-neutral-white flex-1 p-12 flex flex-col'>
         {/* Temporary */}
         {activeStep !== null ? <ToRender /> : <PersonalInfo /> }
-        <FormNavigation />
+        <FormNavigation changeStep={changeStep} currentStep={activeStep}/>
     </div>
   )
 }
