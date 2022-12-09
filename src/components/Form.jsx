@@ -39,7 +39,7 @@ function Form() {
   return (
     <>
       <div className="max-w-4xl bg-gray-500 p-3 rounded-lg flex gap-3">
-        <Stepper steps={STEPS} forwardActiveStep={handleStepChange} />
+        <Stepper  activeStep={activeStep} steps={STEPS} forwardActiveStep={handleStepChange} />
         <FormContent activeStep={activeStep} changeStep={handleStepChange} />
       </div>
     </>
