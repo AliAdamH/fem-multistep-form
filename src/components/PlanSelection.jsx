@@ -2,7 +2,16 @@ import React from 'react'
 import { ReactComponent as Arcade} from '../assets/images/icon-arcade.svg'
 import { ReactComponent as Advanced} from '../assets/images/icon-advanced.svg'
 import { ReactComponent as Pro} from '../assets/images/icon-pro.svg'
-function PlanSelection({ planType, changeData, planFrequency }) {
+
+
+
+const logoCollection =  {
+  arcade: Arcade,
+  advanced: Advanced,
+  pro: Pro
+}
+
+function PlanSelection({ changeData, planFrequency, defaultValues, selectedPlan }) {
   
   const planIsMontlhy = planFrequency === 'monthly'
 
@@ -20,53 +29,29 @@ function PlanSelection({ planType, changeData, planFrequency }) {
         <h2 className='text-3xl font-bold text-primary-marine'>Plan Selection</h2>
         <p className='text-neutral-coolgray'>Please provide your name, email and phone number</p>
     </div>
+
     <div id="fields">
       <div id="radios" className='flex gap-4 justify-center'>
-        <div data-radio-field className='relative rounded-xl border border-neutral-lightgray hover:border-primary-purplish w-1/4 p-4'>
+
+        {Object.keys(defaultValues.plans).map((planType) => {
+
+        let planObject = defaultValues.plans[planType];
+        let PlanLogo = logoCollection[planType];
+
+        return (<div key={planType} data-radio-field className='relative rounded-xl border border-neutral-lightgray hover:border-primary-purplish w-1/4 p-4'>
           <label className='sr-only'>
-            Arcade
+            {planObject.label}
           </label>
           <div data-radio-field-details className='flex flex-col gap-12'>
-            <Arcade />
+            <PlanLogo />
             <div className='flex flex-col'>
-              <span className='font-bold text-sm text-primary-marine'>Arcade</span>
-              <span className='text-sm text-neutral-coolgray'>{planFrequency === 'monthly' ? '$9/mo' : '$90/y'}</span>
+              <span className='font-bold text-sm text-primary-marine'>{planObject.label}</span>
+              <span className='text-sm text-neutral-coolgray'>{planFrequency === 'monthly' ? `$${planObject.monthly}/mo` : `$${planObject.yearly}/y`}</span>
             </div>
           </div>
-          <input  onChange={(e) => changeData({[e.target.name]: e.target.value})} type="radio" name="planType" value="arcade" id="" className='appearance-none rounded-xl absolute inset-0 cursor-pointer checked:bg-neutral-magnolia/30 checked:border checked:border-primary-purplish' checked={planType === 'arcade'} />
-        </div>
-
-        <div data-radio-field className='relative rounded-xl border border-neutral-lightgray hover:border-primary-purplish w-1/4 p-4'>
-          <label className='sr-only'>
-            Advanced
-          </label>
-          <div data-radio-field-details className='flex flex-col gap-12'>
-            <Advanced />
-            <div className='flex flex-col'>
-              <span className='font-bold text-sm text-primary-marine'>Advanced</span>
-              <span className='text-sm text-neutral-coolgray'>{planFrequency === 'monthly' ? '$12/mo' : '$120/y'}</span>
-            </div>
-          </div>
-          <input  onChange={(e) => changeData({[e.target.name]: e.target.value})} type="radio" name="planType" value="advanced" id="" className='appearance-none rounded-xl absolute inset-0 cursor-pointer checked:bg-neutral-magnolia/30 checked:border checked:border-primary-purplish' checked={planType === 'advanced'} />
-        </div>
-
-
-        <div data-radio-field className='relative rounded-xl border border-neutral-lightgray hover:border-primary-purplish w-1/4 p-4'>
-          <label className='sr-only'>
-            Pro
-          </label>
-          <div data-radio-field-details className='flex flex-col gap-12'>
-            <Pro />
-            <div className='flex flex-col'>
-              <span className='font-bold text-sm text-primary-marine'>Pro</span>
-              <span className='text-sm text-neutral-coolgray'>{planFrequency === 'monthly' ? '$15/mo' : '$150/y'}</span>
-            </div>
-          </div>
-          <input onChange={(e) => changeData({[e.target.name]: e.target.value})}  type="radio" name="planType" value="pro" id="" className='appearance-none rounded-xl absolute inset-0 cursor-pointer checked:bg-neutral-magnolia/30 checked:border checked:border-primary-purplish' checked={planType === 'pro'} />
-        </div>
-
-
-
+          <input  onChange={(e) => changeData({ [e.target.name]: planObject })} type="radio" name="selectedPlan" value={planType} id="" className='appearance-none rounded-xl absolute inset-0 cursor-pointer checked:bg-neutral-magnolia/30 checked:border checked:border-primary-purplish' checked={selectedPlan.label === planObject.label} />
+        </div>)    
+        })}
       </div>
 
       <div id="planToggle" className='mt-6 p-3 bg-neutral-magnolia rounded-lg flex justify-center gap-6'>

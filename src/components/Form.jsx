@@ -10,28 +10,37 @@ import PersonalInfo from './PersonalInfo';
 const defaultValues = {
   plans: {
     arcade: {
+      label: 'Arcade',
       monthly: 9,
       yearly: 90
     },
     advanced: {
+      label: 'Advanced',
       monthly: 12,
       yearly: 120
     },
     pro: {
+      label: 'Pro',
       monthly: 15,
       yearly: 150
     }
   },
   addOns: {
     onlineService: {
+      label: 'Online Service',
+      details: 'Access to mulitplayer games',
       monthly: 1,
       yearly: 10
     },
     largerStorage: {
+      label: 'Larger Storage',
+      details: 'Extra 1TB of cloud save',
       monthly: 2,
       yearly: 20
     },
     customizableProfile: {
+      label: 'Customizable Profile',
+      details: 'Custom theme on your profile',
       monthly: 2,
       yearly: 20
     }
@@ -44,7 +53,8 @@ const betterInitialState = {
   phone: '',
   selectedPlan: defaultValues.plans['arcade'],
   planFrequency: 'monthly',
-  selectedAddons: {}
+  selectedAddons: {},
+  planAmount: 0
 }
 
 const initialState = {
@@ -85,7 +95,7 @@ const STEPS = {
 
 function Form() {
   const [activeStep, setActiveStep] = useState(STEPS[1])
-  const [data, setData] = useState(initialState)
+  const [data, setData] = useState(betterInitialState)
   const handleStepChange = (id) => {
     setActiveStep(STEPS[id])
   }
@@ -100,7 +110,7 @@ function Form() {
     <>
       <div className="max-w-4xl bg-gray-500 p-3 rounded-lg flex gap-3">
         <Stepper  activeStep={activeStep} steps={STEPS} forwardActiveStep={handleStepChange} />
-        <FormContent changeData={handleDataChange} data={data} activeStep={activeStep} changeStep={handleStepChange} />
+        <FormContent changeData={handleDataChange} data={data} activeStep={activeStep} changeStep={handleStepChange} defaultValues={defaultValues} />
       </div>
     </>
   );

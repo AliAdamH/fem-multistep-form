@@ -1,16 +1,16 @@
 import React from 'react'
 
-function Summary() {
+function Summary({ selectedPlan, planFrequency }) {
   return (
     <>
     <div id="header" className='mb-8'>
-      <h2 className='text-3xl font-bold text-primary-marine'>Finishing up</h2>
+      <h2 className='tex  t-3xl font-bold text-primary-marine'>Finishing up</h2>
       <p className='text-neutral-coolgray'>Double-check everything before confirming</p>
     </div>
      <div data-summary className='bg-neutral-magnolia p-5 rounded space-y-4'>
         <div data-plan-summary className='border-b-2 border-neutral-lightgray flex items-center pb-6'>
           <div>
-            <h3 className='font-bold text-primary-marine'>Arcade (Monthly)</h3>
+            <h3 className='font-bold text-primary-marine capitalize'>{selectedPlan.label} ({planFrequency})</h3>
             <a href="#" className='text-sm text-neutral-coolgray underline'>Change</a>
           </div>
           <span className='font-bold text-primary-marine text-sm ml-auto'>$9/mo</span>

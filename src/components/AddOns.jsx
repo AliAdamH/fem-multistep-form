@@ -1,9 +1,32 @@
 import React from 'react'
 
-function AddOns({ onlineServiceAddon, largerStorageAddon, customizableProfileAddon, changeData }) {
+function AddOns({ changeData, defaultValues, selectedAddons, planFrequency}) {
+
+
+  const updateSelectedAddOns = (addOnKey, addOn) => {
+    if(isChecked(addOnKey)) {
+      let {[addOnKey]: _discard, ...rest} = selectedAddons;
+      changeData({
+        selectedAddons: {
+          ...rest
+        }
+      }) 
+    } else {
+      changeData({
+        selectedAddons: {
+          ...selectedAddons,
+          [addOnKey]: addOn
+        }
+      })  
+    }
+  }
+
+  const isChecked = (addOnKey) => {
+    return Object.hasOwn(selectedAddons, addOnKey);
+  }
 
   const renderClassesIfChecked = (addOn) => {
-    return addOn ? 'bg-neutral-magnolia border-primary-purplish' : '';
+    return isChecked(addOn) ? 'bg-neutral-magnolia border-primary-purplish' : '';
   }
 
   return (
@@ -12,34 +35,28 @@ function AddOns({ onlineServiceAddon, largerStorageAddon, customizableProfileAdd
       <h2 className='text-3xl font-bold text-primary-marine'>Plan Selection</h2>
       <p className='text-neutral-coolgray'>Please provide your name, email and phone number</p>
     </div>
+
+
+   
+
     <div id="fields" className='flex flex-col gap-4'>
-      <div className={`${renderClassesIfChecked(onlineServiceAddon)} p-4 border border-neutral-lightgray rounded-lg flex gap-10 items-center hover:border-primary-purplish`}>
-        <input onChange={(e) => changeData({[e.target.name]: !onlineServiceAddon})} type="checkbox" name="onlineServiceAddon" id="onlineServiceAddon" checked={onlineServiceAddon} className='w-4 h-4' />
-        <label htmlFor="onlineServiceAddon" className='text-primary-marine font-semibold'>
-          Online Service <br />
-          <span className='text-sm text-neutral-coolgray font-normal'>Access to mulitplayer games</span>
-        </label>
-        <span className='inline-block ml-auto text-primary-purplish text-sm font-semibold'>+$1/mo</span>
-      </div>
+{
+      Object.keys(defaultValues.addOns).map((addOn) => {
 
-      <div className={`${renderClassesIfChecked(largerStorageAddon)} p-4 border border-neutral-lightgray rounded-lg flex gap-10 items-center hover:border-primary-purplish`}>
-        <input onChange={(e) => changeData({[e.target.name]: !largerStorageAddon})} type="checkbox" name="largerStorageAddon" id="largerStorageAddon" checked={largerStorageAddon}  className='w-4 h-4'/>
-        <label htmlFor="largerStorageAddon" className='text-primary-marine font-semibold'>
-          Larger Storage <br />
-          <span className='text-sm text-neutral-coolgray font-normal'>Extra 1TB of cloud save</span>
-        </label>
-        <span className='inline-block ml-auto text-primary-purplish text-sm font-semibold'>+$2/mo</span>
-      </div>
+        let addOnToRender = defaultValues.addOns[addOn];
+        let displayedPrice = planFrequency === 'monthly' ? `+$${addOnToRender.monthly}/mo`: `+$${addOnToRender.yearly}/y`;
 
-      <div className={`${renderClassesIfChecked(customizableProfileAddon)} p-4 border border-neutral-lightgray rounded-lg flex gap-10 items-center hover:border-primary-purplish`}>
-        <input onChange={(e) => changeData({[e.target.name]: !customizableProfileAddon})}  type="checkbox" name="customizableProfileAddon" id="customizableProfileAddon" checked={customizableProfileAddon} className='w-4 h-4' />
-        
-        <label htmlFor="customizableProfileAddon" className='text-primary-marine font-semibold'>
-          Customizable Profile <br />
-          <span className='text-sm text-neutral-coolgray font-normal'>Custom theme on your profile</span>
+      return (<div  key={addOn} className={`${renderClassesIfChecked(addOn)} p-4 border border-neutral-lightgray rounded-lg flex gap-10 items-center hover:border-primary-purplish`}>
+        <input onChange={() => updateSelectedAddOns(addOn, addOnToRender)} type="checkbox" name={addOn} id={addOn} checked={isChecked(addOn)} className='w-4 h-4' />
+        <label htmlFor={addOn} className='text-primary-marine font-semibold'>
+          {addOnToRender.label} <br />
+          <span className='text-sm text-neutral-coolgray font-normal'>{addOnToRender.details}</span>
         </label>
-        <span className='inline-block ml-auto text-primary-purplish text-sm font-semibold'>+$2/mo</span>
-      </div>
+        <span className='inline-block ml-auto text-primary-purplish text-sm font-semibold'>{displayedPrice}</span>
+      </div>)
+
+      })
+    }
     </div>
     </>
   )
