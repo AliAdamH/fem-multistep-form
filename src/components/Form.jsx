@@ -14,7 +14,7 @@ const initialState = {
   phone: '',
   planType: '',
   planAmount: '',
-  planFrequency: '',
+  planFrequency: 'monthly',
   onlineServiceAddon: false,
   largerStorageAddon: false,
   customizableProfileAddon: false,
