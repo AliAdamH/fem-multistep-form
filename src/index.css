@@ -28,3 +28,15 @@
 [data-plan-frequency]:checked::before {
     transform: translateX(0.75rem);
 }
+
+[data-require-validity] {
+    position: relative;
+}
+
+[data-require-validity]::after {
+    content: 'This field is required';
+    position: absolute;
+    right: 0;
+    font-size: 1rem;
+    color: red;
+}

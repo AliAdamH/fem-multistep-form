@@ -10,17 +10,17 @@ function PersonalInfo({ name, email, phone, changeData }) {
        <div id="fields" className='flex flex-col gap-6'>
             <div className='flex flex-col gap-2'>
                 <label htmlFor='name' className='text-primary-marine text-sm'>Name</label>
-                <input onChange={(e) => changeData({[e.target.name]: e.target.value})} id='name' type="text" name='name' value={name} className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
+                <input onChange={(e) => changeData({[e.target.name]: e.target.value})} id='name' type="text" name='name' value={name} placeholder='e.g. Stephen King' className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-purplish invalid:border-primary-strawberry'/>
             </div>
 
             <div className='flex flex-col gap-2'>
                 <label htmlFor='email' className='text-primary-marine text-sm'>Email address</label>
-                <input onChange={(e) => changeData({[e.target.name]: e.target.value})}  id='email' type="email" name='email' value={email} className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
+                <input onChange={(e) => changeData({[e.target.name]: e.target.value})}  id='email' type="email" name='email' value={email} placeholder='e.g.stephenking@lorem.com'  className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-purplish  invalid:border-primary-strawberry'/>
             </div>
 
             <div className='flex flex-col gap-2'>
                 <label htmlFor='phone' className='text-primary-marine text-sm'>Phone Number</label>
-                <input  onChange={(e) => changeData({[e.target.name]: e.target.value})} id='phone' type="tel" name='phone' value={phone} className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md'/>
+                <input onChange={(e) => changeData({[e.target.name]: e.target.value})} id='phone' type="text" name='phone' value={phone} placeholder='e.g +1 234 567 890' className='p-3 text-primary-marine font-semibold border border-slate-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-purplish  invalid:border-primary-strawberry'/>
             </div>
        </div>
     </>
