@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function FormNavigation({ currentStep, changeStep }) {
+function FormNavigation({ currentStep, changeStep, setCompleted }) {
 
   // These hardcoded values are bad ofc.
   const canNavigateBack = currentStep?.stepId > 1;
   const nextStep = currentStep?.stepId < 4;
+
   const navigateNext = () => {
     changeStep(currentStep.stepId + 1)
   }
@@ -14,23 +15,24 @@ function FormNavigation({ currentStep, changeStep }) {
   }
 
   const confirm = () => {
-    return null;
+    setCompleted()
   }
 
   return (
-    <div className='mt-auto flex'>
-        {
-        canNavigateBack ?
-        <button onClick={() => navigateBack()} className='rounded-lg bg-primary-marine text-neutral-white font-semibold px-6 py-3'>Go back</button>
-        : null
-        }
-        {
-        nextStep ? 
-        <button onClick={() => navigateNext()} className='ml-auto rounded-lg bg-primary-marine text-neutral-white font-semibold px-6 py-3'>Next Step</button>
-        :           
-        <button onClick={() => confirm()} className='ml-auto rounded-lg bg-primary-marine text-neutral-white font-semibold px-6 py-3'>confirm</button>
-        }
-    </div>
+ 
+      <div className='mt-auto flex'>
+          {
+          canNavigateBack ?
+          <button onClick={() => navigateBack()} className='rounded-lg bg-primary-marine text-neutral-white font-semibold px-6 py-3'>Go back</button>
+          : null
+          }
+          {
+          nextStep ? 
+          <button onClick={() => navigateNext()} className='ml-auto rounded-lg bg-primary-marine text-neutral-white font-semibold px-6 py-3'>Next Step</button>
+          :           
+          <button onClick={() => confirm()} className='ml-auto rounded-lg bg-primary-marine text-neutral-white font-semibold px-6 py-3'>confirm</button>
+          }
+      </div>
   )
 }
 
