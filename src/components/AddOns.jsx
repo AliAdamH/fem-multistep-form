@@ -31,9 +31,9 @@ function AddOns({ changeData, defaultValues, selectedAddons, planFrequency}) {
 
   return (
     <>
-    <div id="header" className='mb-8'>
-      <h2 className='text-3xl font-bold text-primary-marine'>Plan Selection</h2>
-      <p className='text-neutral-coolgray'>Please provide your name, email and phone number</p>
+    <div id="header" className='mb-4 md:mb-8 space-y-1'>
+      <h2 className='text-3xl font-bold text-primary-marine'>Pick add-ons</h2>
+      <p className='text-neutral-coolgray'>Add-ons help enhance your gaming experience</p>
     </div>
 
 
@@ -46,13 +46,13 @@ function AddOns({ changeData, defaultValues, selectedAddons, planFrequency}) {
         let addOnToRender = defaultValues.addOns[addOn];
         let displayedPrice = planFrequency === 'monthly' ? `+$${addOnToRender.monthly}/mo`: `+$${addOnToRender.yearly}/y`;
 
-      return (<div  key={addOn} className={`${renderClassesIfChecked(addOn)} p-4 border border-neutral-lightgray rounded-lg flex gap-10 items-center hover:border-primary-purplish`}>
-        <input onChange={() => updateSelectedAddOns(addOn, addOnToRender)} type="checkbox" name={addOn} id={addOn} checked={isChecked(addOn)} className='w-4 h-4' />
+      return (<div  key={addOn} className={`${renderClassesIfChecked(addOn)} p-3 md:p-4 border border-neutral-lightgray rounded-lg flex md:gap-10 items-center hover:border-primary-purplish`}>
+        <input onChange={() => updateSelectedAddOns(addOn, addOnToRender)} type="checkbox" name={addOn} id={addOn} checked={isChecked(addOn)} className='w-4 h-4 mr-4 md:mr-0' />
         <label htmlFor={addOn} className='text-primary-marine font-semibold'>
           {addOnToRender.label} <br />
           <span className='text-sm text-neutral-coolgray font-normal'>{addOnToRender.details}</span>
         </label>
-        <span className='inline-block ml-auto text-primary-purplish text-sm font-semibold'>{displayedPrice}</span>
+        <span className='inline-block ml-auto text-primary-purplish  text-sm font-semibold'>{displayedPrice}</span>
       </div>)
 
       })
