@@ -20,7 +20,7 @@ function FormNavigation({ currentStep, changeStep, setCompleted }) {
 
   return (
  
-      <div className='mt-auto flex'>
+      <div className='mt-auto flex absolute bottom-0 px-3 md:px-0 py-4 md:py-0 md:static bg-neutral-white md:bg-transparent w-full'>
           {
           canNavigateBack ?
           <button onClick={() => navigateBack()} className='rounded-lg bg-primary-marine text-neutral-white font-semibold px-6 py-3'>Go back</button>
