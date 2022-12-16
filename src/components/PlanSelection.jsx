@@ -25,24 +25,24 @@ function PlanSelection({ changeData, planFrequency, defaultValues, selectedPlan 
 
   return (
     <>
-    <div id="header" className='mb-8'>
-        <h2 className='text-3xl font-bold text-primary-marine'>Plan Selection</h2>
+    <div id="header" className='mb-4 md:mb-8 space-y-1'>
+        <h2 className='text-2xl md:text-3xl font-bold text-primary-marine'>Plan Selection</h2>
         <p className='text-neutral-coolgray'>Please provide your name, email and phone number</p>
     </div>
 
     <div id="fields">
-      <div id="radios" className='flex gap-4 justify-center'>
+      <div id="radios" className='flex flex-col md:flex-row gap-3 md:gap-4 justify-center'>
 
         {Object.keys(defaultValues.plans).map((planType) => {
 
         let planObject = defaultValues.plans[planType];
         let PlanLogo = logoCollection[planType];
 
-        return (<div key={planType} data-radio-field className='relative rounded-xl border border-neutral-lightgray hover:border-primary-purplish w-1/4 p-4'>
+        return (<div key={planType} data-radio-field className='relative rounded-xl border border-neutral-lightgray hover:border-primary-purplish md:w-1/4 p-4'>
           <label className='sr-only'>
             {planObject.label}
           </label>
-          <div data-radio-field-details className='flex flex-col gap-12'>
+          <div data-radio-field-details className='flex md:flex-col gap-4 md:gap-12'>
             <PlanLogo />
             <div className='flex flex-col'>
               <span className='font-bold text-sm text-primary-marine'>{planObject.label}</span>
