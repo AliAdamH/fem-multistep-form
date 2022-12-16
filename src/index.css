@@ -40,3 +40,10 @@
     font-size: 1rem;
     color: red;
 }
+
+
+@layer utilities {
+    .custom__container {
+        width: min(984px,100%);
+    }
+}

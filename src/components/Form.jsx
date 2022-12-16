@@ -108,7 +108,7 @@ function Form() {
 
   return (
     <>
-      <div className="max-w-4xl bg-gray-500 p-3 rounded-lg flex gap-3">
+      <div className="custom__container bg-neutral-white p-3 rounded-lg flex gap-3 max-w-[1024px]">
         <Stepper  activeStep={activeStep} steps={STEPS} forwardActiveStep={handleStepChange} />
         <FormContent changeData={handleDataChange} data={data} activeStep={activeStep} changeStep={handleStepChange} defaultValues={defaultValues} />
       </div>
