@@ -16,8 +16,8 @@ function Summary({ selectedPlan, planFrequency, selectedAddons }) {
 
   return (
     <>
-    <div id="header" className='mb-8'>
-      <h2 className='text-3xl font-bold text-primary-marine'>Finishing up</h2>
+    <div id="header" className='mb-4 md:mb-8 space-y-1'>
+      <h2 className='text-2xl md:text-3xl font-bold text-primary-marine'>Finishing up</h2>
       <p className='text-neutral-coolgray'>Double-check everything before confirming</p>
     </div>
      <div data-summary className='bg-neutral-magnolia p-5 rounded space-y-4'>
@@ -41,9 +41,9 @@ function Summary({ selectedPlan, planFrequency, selectedAddons }) {
             }
         </div>
      </div>
-    <div data-total className='flex justify-between items-center mt-8 px-6 capitalize'>
+    <div data-total className='flex justify-between items-center mt-8 px-4 md:px-6  capitalize'>
       <span className='text-sm text-neutral-coolgray'>Total per {periodFormatter}</span>
-      <span className='text-lg text-primary-purplish font-bold '>${TotalPrice()}/{periodFormatter}</span>
+      <span className='md:text-lg text-primary-purplish font-bold '>${TotalPrice()}/{periodFormatter}</span>
     </div>
     </>
   )
