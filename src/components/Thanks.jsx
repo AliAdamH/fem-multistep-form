@@ -2,7 +2,8 @@ import React from 'react'
 import { ReactComponent as ThanksLogo } from '../assets/images/icon-thank-you.svg'
 function Thanks() {
   return (
-    <div className='bg-neutral-white flex flex-col items-center justify-center px-10 gap-6'>
+    // bg-neutral-white flex-1 mx-5 rounded-xl md:rounded-none md:mx-0 top-24 p-7 md:p-12 flex flex-col absolute md:static shadow-md md:shadow-none
+    <div className='bg-neutral-white mx-5 rounded-xl md:rounded-none md:mx-0 top-24 flex flex-col items-center justify-center px-4 py-20 md:py-0 md:px-10 gap-4 md:gap-6 absolute md:static shadow-md md:shadow-none'>
         <ThanksLogo />
         <div id="header" className='text-center space-y-4'>
             <h2 className='text-3xl font-bold text-primary-marine'>Thank You!</h2>
