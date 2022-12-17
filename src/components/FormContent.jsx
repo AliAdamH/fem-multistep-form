@@ -9,7 +9,7 @@ function FormContent({ data, activeStep,  changeStep, changeData, defaultValues,
   return (
     <>
    {!completed ? 
-    <div className='md:flex-1 md:flex md:flex-col p-0 md:p-12'>
+    <div className='md:flex-1 md:flex md:flex-col p-0 md:px-24 md:py-12'>
         <form noValidate className='bg-neutral-white flex-1 mx-5 rounded-xl md:rounded-none md:mx-0 top-24 p-7 md:p-0 flex flex-col absolute md:static shadow-md md:shadow-none'>
           {activeStep !== null ? <ToRender {...data} changeData={changeData} defaultValues={defaultValues} changePlan={() => changeStep(planStepId) } /> : <PersonalInfo /> }
         </form>

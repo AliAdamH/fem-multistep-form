@@ -30,7 +30,7 @@ function FormNavigation({ currentStep, changeStep, setCompleted }) {
           nextStep ? 
           <button onClick={() => navigateNext()} className='ml-auto rounded md:rounded-lg hover:opacity-80 bg-primary-marine text-neutral-white font-semibold px-4 md:px-6 py-3'>Next Step</button>
           :           
-          <button onClick={() => confirm()} className='ml-auto rounded md:rounded-lg bg-primary-marine text-neutral-white font-semibold px-4 md:px-6 py-3 hover:opacity-70 hover:bg-primary-purplish'>Confirm</button>
+          <button onClick={() => confirm()} className='ml-auto rounded md:rounded-lg text-neutral-white font-semibold px-4 md:px-6 py-3 hover:opacity-70 bg-primary-purplish'>Confirm</button>
           }
       </div>
   )

@@ -41,9 +41,9 @@ function Summary({ selectedPlan, planFrequency, selectedAddons, changePlan }) {
             }
         </div>
      </div>
-    <div data-total className='flex justify-between items-center mt-8 px-4 md:px-6  capitalize'>
-      <span className='text-sm text-neutral-coolgray'>Total per {periodFormatter}</span>
-      <span className='md:text-lg text-primary-purplish font-bold '>${TotalPrice()}/{periodFormatter}</span>
+    <div data-total className='flex justify-between items-center mt-8 px-4 md:px-6'>
+      <span className='text-sm text-neutral-coolgray'>Total (per {periodFormatter})</span>
+      <span className='md:text-lg text-primary-purplish font-bold capitalize'>${TotalPrice()}/{periodFormatter}</span>
     </div>
     </>
   )

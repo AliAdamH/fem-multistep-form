@@ -46,7 +46,8 @@ function AddOns({ changeData, defaultValues, selectedAddons, planFrequency}) {
         let addOnToRender = defaultValues.addOns[addOn];
         let displayedPrice = planFrequency === 'monthly' ? `+$${addOnToRender.monthly}/mo`: `+$${addOnToRender.yearly}/y`;
 
-      return (<div  key={addOn} className={`${renderClassesIfChecked(addOn)} p-3 md:p-4 border border-neutral-lightgray rounded-lg flex md:gap-10 items-center hover:border-primary-purplish`}>
+      return (
+      <div  key={addOn} className={`${renderClassesIfChecked(addOn)} p-3 md:p-4 border border-neutral-lightgray rounded-lg flex md:gap-10 items-center hover:border-primary-purplish`}>
         <input onChange={() => updateSelectedAddOns(addOn, addOnToRender)} type="checkbox" name={addOn} id={addOn} checked={isChecked(addOn)} className='w-4 h-4 mr-4 md:mr-0' />
         <label htmlFor={addOn} className='text-primary-marine font-semibold'>
           {addOnToRender.label} <br />
