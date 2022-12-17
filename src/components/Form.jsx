@@ -6,46 +6,45 @@ import PlanSelection from './PlanSelection';
 import Summary from './Summary';
 import PersonalInfo from './PersonalInfo';
 
-
 const defaultValues = {
   plans: {
     arcade: {
       label: 'Arcade',
       monthly: 9,
-      yearly: 90
+      yearly: 90,
     },
     advanced: {
       label: 'Advanced',
       monthly: 12,
-      yearly: 120
+      yearly: 120,
     },
     pro: {
       label: 'Pro',
       monthly: 15,
-      yearly: 150
-    }
+      yearly: 150,
+    },
   },
   addOns: {
     onlineService: {
       label: 'Online Service',
       details: 'Access to mulitplayer games',
       monthly: 1,
-      yearly: 10
+      yearly: 10,
     },
     largerStorage: {
       label: 'Larger Storage',
       details: 'Extra 1TB of cloud save',
       monthly: 2,
-      yearly: 20
+      yearly: 20,
     },
     customizableProfile: {
       label: 'Customizable Profile',
       details: 'Custom theme on your profile',
       monthly: 2,
-      yearly: 20
-    }
-  }
-}
+      yearly: 20,
+    },
+  },
+};
 
 const betterInitialState = {
   name: '',
@@ -54,8 +53,8 @@ const betterInitialState = {
   selectedPlan: defaultValues.plans['arcade'],
   planFrequency: 'monthly',
   selectedAddons: {},
-  planAmount: 0
-}
+  planAmount: 0,
+};
 
 const initialState = {
   name: '',
@@ -67,50 +66,60 @@ const initialState = {
   onlineServiceAddon: false,
   largerStorageAddon: false,
   customizableProfileAddon: false,
-}
-
+};
 
 const STEPS = {
   1: {
     stepId: 1,
     stepLabel: 'YOUR INFO',
-    view: PersonalInfo
+    view: PersonalInfo,
   },
   2: {
     stepId: 2,
     stepLabel: 'SELECT PLAN',
-    view: PlanSelection
+    view: PlanSelection,
   },
-  3:{
+  3: {
     stepId: 3,
     stepLabel: 'ADD-ONS',
-    view: AddOns
+    view: AddOns,
   },
   4: {
     stepId: 4,
     stepLabel: 'SUMMARY',
-    view: Summary
-  }
-}
+    view: Summary,
+  },
+};
 
 function Form() {
-  const [activeStep, setActiveStep] = useState(STEPS[1])
-  const [data, setData] = useState(betterInitialState)
+  const [activeStep, setActiveStep] = useState(STEPS[1]);
+  const [data, setData] = useState(betterInitialState);
   const handleStepChange = (id) => {
-    setActiveStep(STEPS[id])
-  }
-  
+    setActiveStep(STEPS[id]);
+  };
+
   const handleDataChange = (fields) => {
     setData((previousData) => {
-      return {...previousData, ...fields}
-    })
-  }
+      return { ...previousData, ...fields };
+    });
+  };
 
   return (
     <>
       <div className="custom__container shadow-xl bg-neutral-magnolia md:bg-neutral-white md:p-3 rounded-lg flex flex-col md:flex-row gap-3">
-        <Stepper  activeStep={activeStep} steps={STEPS} forwardActiveStep={handleStepChange} />
-        <FormContent changeData={handleDataChange} data={data} activeStep={activeStep} changeStep={handleStepChange} planStepId={STEPS[2].stepId} defaultValues={defaultValues} />
+        <Stepper
+          activeStep={activeStep}
+          steps={STEPS}
+          forwardActiveStep={handleStepChange}
+        />
+        <FormContent
+          changeData={handleDataChange}
+          data={data}
+          activeStep={activeStep}
+          changeStep={handleStepChange}
+          planStepId={STEPS[2].stepId}
+          defaultValues={defaultValues}
+        />
       </div>
     </>
   );
