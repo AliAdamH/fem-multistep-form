@@ -51,22 +51,22 @@
 
 
 @font-face {
-    font-family: 'Inter';
-    src: url('/assets/fonts/static/Ubuntu-Regular.ttf');
+    font-family: 'Ubuntu';
+    src: url('assets/fonts/Ubuntu-Regular.ttf');
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('/assets/fonts/static/Ubuntu-Medium.ttf');
+    font-family: 'Ubuntu';
+    src: url('assets/fonts/Ubuntu-Medium.ttf');
     font-style: normal;
     font-weight: 500;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('/assets/fonts/static/Ubuntu-Bold.ttf');
+    font-family: 'Ubuntu';
+    src: url('assets/fonts/Ubuntu-Bold.ttf');
     font-style: normal;
     font-weight: 700;
 }
