@@ -15,7 +15,7 @@ function PersonalInfo({ name, email, phone, changeData }) {
 
             <div className='flex flex-col gap-1 md:gap-2'>
                 <label htmlFor='email' className='text-primary-marine text-sm'>Email address</label>
-                <input onChange={(e) => changeData({[e.target.name]: e.target.value})}  id='email' type="email" name='email' value={email} placeholder='e.g.stephenking@lorem.com'  className='p-2 md:p-3 text-primary-marine font-semibold border rounded border-slate-300 md:rounded-md focus:outline-none focus:ring-1 focus:ring-primary-purplish'/>
+                <input onChange={(e) => changeData({[e.target.name]: e.target.value})}  id='email' type="email" name='email' value={email} placeholder='e.g. stephenking@lorem.com'  className='p-2 md:p-3 text-primary-marine font-semibold border rounded border-slate-300 md:rounded-md focus:outline-none focus:ring-1 focus:ring-primary-purplish'/>
             </div>
 
             <div className='flex flex-col gap-1 md:gap-2'>

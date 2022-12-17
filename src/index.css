@@ -47,3 +47,33 @@
         width: min(984px,100%);
     }
 }
+
+
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/static/Ubuntu-Regular.ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/static/Ubuntu-Medium.ttf');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/static/Ubuntu-Bold.ttf');
+    font-style: normal;
+    font-weight: 700;
+}
+
+
+@layer base {
+    html {
+      font-family: 'Ubuntu', system-ui, sans-serif;
+    }   
+}
