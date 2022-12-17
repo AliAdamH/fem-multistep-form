@@ -24,7 +24,7 @@ function Summary({ selectedPlan, planFrequency, selectedAddons, changePlan }) {
         <div data-plan-summary className='border-b-2 border-neutral-lightgray flex items-center pb-6'>
           <div>
             <h3 className='font-bold text-primary-marine capitalize'>{selectedPlan.label} ({planFrequency})</h3>
-            <a onClick={changePlan} href="#" className='text-sm text-neutral-coolgray underline' >Change</a>
+            <a onClick={changePlan} href="#" className='text-sm text-neutral-coolgray underline hover:text-primary-purplish' >Change</a>
           </div>
           <span className='font-bold text-primary-marine text-sm ml-auto'>{displayPriceHelper(selectedPlan)}</span>
         </div>
