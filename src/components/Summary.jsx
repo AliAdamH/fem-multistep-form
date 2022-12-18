@@ -37,13 +37,13 @@ function Summary({ selectedPlan, planFrequency, selectedAddons, changePlan }) {
             <h3 className="font-bold text-primary-marine capitalize">
               {selectedPlan.label} ({planFrequency})
             </h3>
-            <a
+            <button
               onClick={changePlan}
               href="#"
               className="text-sm text-neutral-coolgray underline hover:text-primary-purplish"
             >
               Change
-            </a>
+            </button>
           </div>
           <span className="font-bold text-primary-marine text-sm ml-auto">
             {displayPriceHelper(selectedPlan)}

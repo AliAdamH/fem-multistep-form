@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FormContent from './FormContent';
 import Stepper from './Stepper';
 import AddOns from './AddOns';
@@ -46,7 +46,7 @@ const defaultValues = {
   },
 };
 
-const betterInitialState = {
+const initialState = {
   name: '',
   email: '',
   phone: '',
@@ -54,18 +54,6 @@ const betterInitialState = {
   planFrequency: 'monthly',
   selectedAddons: {},
   planAmount: 0,
-};
-
-const initialState = {
-  name: '',
-  email: '',
-  phone: '',
-  planType: 'arcade',
-  planAmount: '',
-  planFrequency: 'monthly',
-  onlineServiceAddon: false,
-  largerStorageAddon: false,
-  customizableProfileAddon: false,
 };
 
 const STEPS = {
@@ -93,7 +81,7 @@ const STEPS = {
 
 function Form() {
   const [activeStep, setActiveStep] = useState(STEPS[1]);
-  const [data, setData] = useState(betterInitialState);
+  const [data, setData] = useState(initialState);
   const handleStepChange = (id) => {
     setActiveStep(STEPS[id]);
   };

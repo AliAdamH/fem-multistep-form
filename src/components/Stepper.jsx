@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import desktopSidebar from '../assets/images/bg-sidebar-desktop.svg';
+import React from 'react';
 import { ReactComponent as DesktopSidebar } from '../assets/images/bg-sidebar-desktop.svg';
 import { ReactComponent as MobileSidebar } from '../assets/images/bg-sidebar-mobile.svg';
 import StepperItem from './StepperItem';

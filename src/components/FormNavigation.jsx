@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function FormNavigation({ currentStep, changeStep, setCompleted }) {
   // These hardcoded values are bad ofc.
